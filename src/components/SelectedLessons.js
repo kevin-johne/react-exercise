@@ -1,24 +1,41 @@
 import React, { Component } from "react";
-import CheckboxList from "./CheckboxList";
+import {CheckboxList} from "./CheckboxList";
 import { connect } from "react-redux";
-import moize from "moize";
 import { updateSelectedLessons } from "../store/lessons/lessons.action";
-
-// Add code in this file to create a component for the main view:
-// You may want to connect component to store props & dispatch
+import {getLessons, getSelectedLessons} from "../store/lessons/lessons.selector";
 
 class SelectedLessons extends Component {
   render() {
-    return "";
+    const {lessons} = this.props;
+
+    return (
+      <div>
+        <h1>Lessons List:</h1>
+        <CheckboxList items={this.mapLessonsToCheckbox(lessons)}/>
+      </div>
+    );
+  }
+
+  mapLessonsToCheckbox(lessons) {
+    return lessons.map(lesson => { return {
+      value: lesson.id,
+      name: lesson.name,
+      disabled: !(lesson.status === "enabled")
+    }});
   }
 }
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    lessons: getLessons(state),
+    selectedLessons: getSelectedLessons(state)
+  };
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    submit: () => dispatch(updateSelectedLessons())
+  };
 };
 
 export default connect(

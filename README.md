@@ -38,16 +38,16 @@ In the test suite there are also a few tests for you to write to test some of yo
 ### No need to change these:
 * all-lessons.json: lesson fixture data
 * index.js: main setup file is set up for you
-* reducer.js: the root reducer
+* lessons.store.js: the root reducer
 * setupTests.js: test setup file
 
 ### Code will need adding to these files:
-* CheckboxList.component.js
+* CheckboxList.js
 * SelectedLessons.component.js: the main connected component view
 * SelectedLessons.component.test.js: the test suite for the SelectedLessons component
-* selectedLessons.reducer.js: the reducer for selected lessons
+* selectedLessons.lessons.store.js: the reducer for selected lessons
 * styles.scss: the SASS
-* updateSelectedLessons.action.js
+* lessons.action.js
 
 These files are in place as a guide to help, but don't feel you need to rigidly stick to this. Feel free to add code anywhere you like to make this work the way you think it should. If you want to place code in new files, create them, if you don't need the existing one, delete them!
 

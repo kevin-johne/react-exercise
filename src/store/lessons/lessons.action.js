@@ -1,7 +1,7 @@
-
-export const UPDATE_SELECTED_LESSONS_REQUEST = 'UPDATE_SELECTED_LESSONS_REQUEST'
-
-export const UPDATE_SELECTED_LESSONS_SUCCESS = 'UPDATE_SELECTED_LESSONS_SUCCESS'
+import {
+  UPDATE_SELECTED_LESSONS_REQUEST,
+  UPDATE_SELECTED_LESSONS_SUCCESS
+} from './lessons.type'
 
 export const updateSelectedLessonsRequest = data => {
   return {
@@ -16,4 +16,6 @@ export const updateSelectedLessonsSuccess = data => {
   }
 }
 
+
+export const updateSelectedLessons = () => {}
 // fake an async request to API here:

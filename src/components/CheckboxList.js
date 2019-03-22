@@ -1,1 +1,1 @@
-// create a component for a list of checkbox items here: 
+// create a component for a list of checkbox items here:

@@ -1,21 +1,23 @@
 import types from "./lessons.type";
 
-export const updateSelectedLessons = async (dispatch) => {
-  dispatch(updateSelectedLessonsRequest());
+export const updateSelectedLessons = ids => {
+  return async dispatch => {
+    const body = { lessonsIds: ids };
 
-  try {
-    const response = await fetch( {
-      url: "https://admin.circusstreet.com/fake",
-      method: "POST",
-      body: {
-        lessonsIds: [61, 62, 63]
-      }
-    });
-    const json = await response.json();
-    dispatch(updateSelectedLessonsSuccess(json));
-  } catch (error) {
-    console.warn(error);
-  }
+    dispatch(updateSelectedLessonsRequest());
+
+    try {
+      const response = await fetch("https://admin.circusstreet.com/fake", {
+        method: "POST",
+        body: body
+      });
+      const json = await response.json();
+    } catch (error) {
+      console.error(error);
+    } finally {
+      dispatch(updateSelectedLessonsSuccess(body.lessonsIds));
+    }
+  };
 };
 
 export const updateSelectedLessonsRequest = () => {
@@ -24,9 +26,9 @@ export const updateSelectedLessonsRequest = () => {
   };
 };
 
-export const updateSelectedLessonsSuccess = data => {
+export const updateSelectedLessonsSuccess = ids => {
   return {
     type: types.UPDATE_SELECTED_LESSONS_SUCCESS,
-    data: data
+    data: ids
   };
 };

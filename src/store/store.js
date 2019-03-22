@@ -6,4 +6,6 @@ const state = {};
 
 const store = createStore(lessonsReducer, state, applyMiddleware(thunk));
 
+window.store = store;
+
 export default store;

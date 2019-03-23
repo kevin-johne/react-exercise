@@ -16,7 +16,7 @@ class SelectedLessons extends Component {
     this.state = {
       lessons: this.props.lessons,
       lessonsSelectionChanged: false
-    }
+    };
   }
 
   render() {
@@ -28,8 +28,16 @@ class SelectedLessons extends Component {
         <h1 className="H1">Lessons List:</h1>
         <form onSubmit={this.onSubmit}>
           <fieldset disabled={formDisabled}>
-            <CheckboxList items={lessons} onChange={this.onLessonsCheckedChange}/>
-            <button className="Btn" disabled={!this.state.lessonsSelectionChanged}>Submit</button>
+            <CheckboxList
+              items={lessons}
+              onChange={this.onLessonsCheckedChange}
+            />
+            <button
+              className="Btn"
+              disabled={!this.state.lessonsSelectionChanged}
+            >
+              Submit
+            </button>
           </fieldset>
         </form>
       </>
@@ -38,14 +46,15 @@ class SelectedLessons extends Component {
 
   onSubmit(event) {
     event.preventDefault();
-    const lessonIds = this.state.lessons.filter((lesson) => {
-      return lesson.checked;
-    }) || [];
+    const lessonIds =
+      this.state.lessons.filter(lesson => {
+        return lesson.checked;
+      }) || [];
     this.props.submit(lessonIds);
   }
 
   onLessonsCheckedChange(lessonId) {
-    const updatedLessons = this.state.lessons.map((lesson) => {
+    const updatedLessons = this.state.lessons.map(lesson => {
       return this.toggleChecked(lessonId, lesson);
     });
     this.setState({
@@ -55,14 +64,14 @@ class SelectedLessons extends Component {
   }
 
   toggleChecked(lessonId, lesson) {
-    if(lessonId === lesson.value) {
-      return {...lesson, checked: !lesson.checked};
+    if (lessonId === lesson.value) {
+      return { ...lesson, checked: !lesson.checked };
     }
     return lesson;
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevProps.isLoadingLessons && !this.props.isLoadingLessons) {
+    if (prevProps.isLoadingLessons && !this.props.isLoadingLessons) {
       this.setState({
         lessonsSelectionChanged: false
       });

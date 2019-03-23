@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { CheckboxList } from "./CheckboxList";
 import { connect } from "react-redux";
 import { updateSelectedLessons } from "../store/lessons/lessons.action";
-import { getLessonsForCheckbox } from "../store/lessons/lessons.selector";
+import {getLessonsForCheckbox, isLoadingLessons} from "../store/lessons/lessons.selector";
 
 class SelectedLessons extends Component {
   constructor(props) {
@@ -14,15 +14,16 @@ class SelectedLessons extends Component {
 
   render() {
     const { lessons } = this.props;
+    const formDisabled = this.props.isLoadingLessons;
 
     return (
       <>
         <h1>Lessons List:</h1>
         <form onSubmit={this.onSubmit} ref={this.form}>
-          {/*<fieldset disabled={"disabled"}>*/}
+          <fieldset disabled={formDisabled}>
             <CheckboxList items={lessons} />
             <button>Submit</button>
-          {/*</fieldset>*/}
+          </fieldset>
         </form>
       </>
     );
@@ -42,7 +43,8 @@ class SelectedLessons extends Component {
 
 const mapStateToProps = state => {
   return {
-    lessons: getLessonsForCheckbox(state)
+    lessons: getLessonsForCheckbox(state),
+    isLoadingLessons: isLoadingLessons(state)
   };
 };
 

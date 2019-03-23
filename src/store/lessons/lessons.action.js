@@ -3,6 +3,7 @@ import types from "./lessons.type";
 export const updateSelectedLessons = ids => {
   return async dispatch => {
     const body = { lessonsIds: ids };
+    const FAKE_HTTP_TIMER = 1000;
 
     dispatch(updateSelectedLessonsRequest());
 
@@ -11,11 +12,14 @@ export const updateSelectedLessons = ids => {
         method: "POST",
         body: body
       });
-      const json = await response.json();
     } catch (error) {
       console.error(error);
     } finally {
-      dispatch(updateSelectedLessonsSuccess(body.lessonsIds));
+      //this is part of the exercise, where we return fake data any case,
+      // usually this would be in the try clause
+      setTimeout(() => {
+        dispatch(updateSelectedLessonsSuccess(body.lessonsIds));
+      }, FAKE_HTTP_TIMER);
     }
   };
 };

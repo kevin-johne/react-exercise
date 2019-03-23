@@ -12,3 +12,7 @@ const mapLessonsToCheckbox = (lessons, selectedLessons) => {
     };
   });
 };
+
+export const isLoadingLessons = state => {
+  return state.loadingLessons.loading;
+};

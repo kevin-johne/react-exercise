@@ -1,0 +1,41 @@
+@import "reset";
+@import "settings";
+
+.Body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  padding: 1rem;
+  margin: 0 auto;
+  width: 30em;
+}
+
+.H1 {
+  font-size: 2rem;
+}
+
+.CheckboxList {
+  margin-bottom: 2rem;
+
+  &__input {
+    margin-right: 1rem;
+  }
+
+  &__label {
+    display: inline-block;
+    padding: 0.25rem;
+  }
+}
+
+.Btn {
+  font-weight: bold;
+  color: white;
+
+  padding: 1rem;
+
+  background-color: $buttonColor;
+  border-radius: 0.5rem;
+
+  &:disabled {
+    background-color: $buttonDisabledColor;
+  }
+}

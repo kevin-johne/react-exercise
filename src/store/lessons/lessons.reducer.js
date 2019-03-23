@@ -26,18 +26,18 @@ const loadingLessons = (state = {}, action) => {
       return {
         ...state,
         loading: true
-      }
+      };
     }
     case types.UPDATE_SELECTED_LESSONS_SUCCESS: {
       return {
         ...state,
         loading: false
-      }
+      };
     }
     default:
       return state;
   }
-}
+};
 
 const lessonsReducer = combineReducers({
   allLessons,

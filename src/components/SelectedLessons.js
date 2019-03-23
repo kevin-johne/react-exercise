@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { CheckboxList } from "./CheckboxList";
 import { connect } from "react-redux";
 import { updateSelectedLessons } from "../store/lessons/lessons.action";
-import {getLessonsForCheckbox, isLoadingLessons} from "../store/lessons/lessons.selector";
+import {
+  getLessonsForCheckbox,
+  isLoadingLessons
+} from "../store/lessons/lessons.selector";
 
 class SelectedLessons extends Component {
   constructor(props) {
@@ -18,11 +21,11 @@ class SelectedLessons extends Component {
 
     return (
       <>
-        <h1>Lessons List:</h1>
+        <h1 className="H1">Lessons List:</h1>
         <form onSubmit={this.onSubmit} ref={this.form}>
           <fieldset disabled={formDisabled}>
             <CheckboxList items={lessons} />
-            <button>Submit</button>
+            <button className="Btn">Submit</button>
           </fieldset>
         </form>
       </>

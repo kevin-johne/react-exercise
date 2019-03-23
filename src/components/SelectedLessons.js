@@ -14,7 +14,8 @@ class SelectedLessons extends Component {
     this.onLessonsCheckedChange = this.onLessonsCheckedChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
-      lessons: this.props.lessons
+      lessons: this.props.lessons,
+      lessonsSelectionChanged: false
     }
   }
 
@@ -28,7 +29,7 @@ class SelectedLessons extends Component {
         <form onSubmit={this.onSubmit}>
           <fieldset disabled={formDisabled}>
             <CheckboxList items={lessons} onChange={this.onLessonsCheckedChange}/>
-            <button className="Btn">Submit</button>
+            <button className="Btn" disabled={!this.state.lessonsSelectionChanged}>Submit</button>
           </fieldset>
         </form>
       </>
@@ -48,7 +49,8 @@ class SelectedLessons extends Component {
       return this.toggleChecked(lessonId, lesson);
     });
     this.setState({
-      lessons: updatedLessons
+      lessons: updatedLessons,
+      lessonsSelectionChanged: true
     });
   }
 
@@ -57,6 +59,14 @@ class SelectedLessons extends Component {
       return {...lesson, checked: !lesson.checked};
     }
     return lesson;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.isLoadingLessons && !this.props.isLoadingLessons) {
+      this.setState({
+        lessonsSelectionChanged: false
+      });
+    }
   }
 }
 

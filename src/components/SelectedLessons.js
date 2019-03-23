@@ -11,20 +11,23 @@ class SelectedLessons extends Component {
   constructor(props) {
     super(props);
 
+    this.onLessonsCheckedChange = this.onLessonsCheckedChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.form = React.createRef();
+    this.state = {
+      lessons: this.props.lessons
+    }
   }
 
   render() {
-    const { lessons } = this.props;
+    const { lessons } = this.state;
     const formDisabled = this.props.isLoadingLessons;
 
     return (
       <>
         <h1 className="H1">Lessons List:</h1>
-        <form onSubmit={this.onSubmit} ref={this.form}>
+        <form onSubmit={this.onSubmit}>
           <fieldset disabled={formDisabled}>
-            <CheckboxList items={lessons} />
+            <CheckboxList items={lessons} onChange={this.onLessonsCheckedChange}/>
             <button className="Btn">Submit</button>
           </fieldset>
         </form>
@@ -33,14 +36,27 @@ class SelectedLessons extends Component {
   }
 
   onSubmit(event) {
-    const checkedLessons = this.form.current.querySelectorAll("input:checked");
-    const lessonIds = [];
-    for (let iterator = 0; iterator < checkedLessons.length; iterator++) {
-      const id = parseInt(checkedLessons[iterator].value);
-      lessonIds.push(id);
-    }
-    this.props.submit(lessonIds);
     event.preventDefault();
+    const lessonIds = this.state.lessons.filter((lesson) => {
+      return lesson.checked;
+    }) || [];
+    this.props.submit(lessonIds);
+  }
+
+  onLessonsCheckedChange(lessonId) {
+    const updatedLessons = this.state.lessons.map((lesson) => {
+      return this.toggleChecked(lessonId, lesson);
+    });
+    this.setState({
+      lessons: updatedLessons
+    });
+  }
+
+  toggleChecked(lessonId, lesson) {
+    if(lessonId === lesson.value) {
+      return {...lesson, checked: !lesson.checked};
+    }
+    return lesson;
   }
 }
 

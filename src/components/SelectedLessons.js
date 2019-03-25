@@ -46,11 +46,14 @@ class SelectedLessons extends Component {
 
   onSubmit(event) {
     event.preventDefault();
-    const lessonIds =
-      this.state.lessons.filter(lesson => {
-        return lesson.checked;
-      }) || [];
+    const lessonIds = this.filterCheckedLessons();
     this.props.submit(lessonIds);
+  }
+
+  filterCheckedLessons() {
+    return this.state.lessons.filter(lesson => {
+      return lesson.checked;
+    }) || [];
   }
 
   onLessonsCheckedChange(lessonId) {

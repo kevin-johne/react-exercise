@@ -2,6 +2,12 @@ import React from "react";
 
 export const CheckboxList = props => {
   const items = props.items;
+
+  const onChange = (event) => {
+    const value = parseInt(event.target.value);
+    props.onChange(value);
+  };
+
   return (
     <div className="CheckboxList">
       {items.map(item => {

@@ -8,7 +8,7 @@ export const updateSelectedLessons = ids => {
     dispatch(updateSelectedLessonsRequest());
 
     try {
-      const response = await fetch("https://admin.circusstreet.com/fake", {
+      await fetch("https://admin.circusstreet.com/fake", {
         method: "POST",
         body: body
       });

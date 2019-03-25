@@ -25,7 +25,7 @@ class SelectedLessons extends Component {
 
     return (
       <>
-        <h1 className="H1">Lessons List:</h1>
+        <h1 className="h1">Lessons List:</h1>
         <form onSubmit={this.onSubmit}>
           <fieldset disabled={formDisabled}>
             <CheckboxList
@@ -33,7 +33,7 @@ class SelectedLessons extends Component {
               onChange={this.onLessonsCheckedChange}
             />
             <button
-              className="Btn"
+              className="btn"
               disabled={!this.state.lessonsSelectionChanged}
             >
               Submit

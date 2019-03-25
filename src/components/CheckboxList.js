@@ -14,7 +14,7 @@ export const CheckboxList = props => {
               value={item.value}
               checked={item.checked}
               disabled={item.disabled}
-              onChange={() => props.onChange(item.value)}
+              onChange={onChange}
             />
             <label className="CheckboxList__label" htmlFor={item.value}>
               {item.name}

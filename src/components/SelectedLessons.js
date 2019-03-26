@@ -7,7 +7,7 @@ import {
   isLoadingLessons
 } from "../store/lessons/lessons.selector";
 
-class SelectedLessons extends Component {
+export class SelectedLessons extends Component {
   constructor(props) {
     super(props);
 
@@ -24,10 +24,10 @@ class SelectedLessons extends Component {
     const formDisabled = this.props.isLoadingLessons;
 
     return (
-      <>
+      <React.Fragment>
         <h1 className="h1">Lessons List:</h1>
         <form onSubmit={this.onSubmit}>
-          <fieldset disabled={formDisabled}>
+          <fieldset disabled={formDisabled} test="test">
             <CheckboxList
               items={lessons}
               onChange={this.onLessonsCheckedChange}
@@ -40,7 +40,7 @@ class SelectedLessons extends Component {
             </button>
           </fieldset>
         </form>
-      </>
+      </React.Fragment>
     );
   }
 

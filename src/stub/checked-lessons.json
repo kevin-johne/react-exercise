@@ -1,0 +1,92 @@
+[
+  {
+    "value": 61,
+    "name": "Ad Tech Explained Part 1",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 62,
+    "name": "Ad Tech Explained Part 2",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 63,
+    "name": "Ad Tech Explained Part 3",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 76,
+    "name": "Ad Verification Part 1",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 77,
+    "name": "Ad Verification Part 2",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 128,
+    "name": "Agile Part 1",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 129,
+    "name": "Agile Part 2",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 130,
+    "name": "Agile Part 3",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 131,
+    "name": "Big Data Part 1",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 132,
+    "name": "Big Data Part 2",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 133,
+    "name": "Big Data Part 3",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 90,
+    "name": "Content Marketing Part 1",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 91,
+    "name": "Content Marketing Part 2",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 117,
+    "name": "Customer Relationship Management (CRM) Part 1",
+    "disabled": false,
+    "checked": false
+  },
+  {
+    "value": 118,
+    "name": "Customer Relationship Management (CRM) Part 2",
+    "disabled": false,
+    "checked": false
+  }
+]

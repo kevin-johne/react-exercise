@@ -1,6 +1,18 @@
 # Circus Street React Exercise
 
-This is a read-only repo. Please fork to your own github and commit your changes there.
+## Introduction:
+
+Hi there and thank you for that challenge.
+It was not a trivial test, as it touches many different points of a React app development cycle.
+Because of it, I structured the project in my preferred way, you will find:
+
+1) components in src/components, containing js, styling and tests 
+2) global store and dispatchers in src/store
+3) global styling in src/style
+
+I am looking forward to hear your opinion.
+
+The following text is unchanged.
 
 ## Description:
 

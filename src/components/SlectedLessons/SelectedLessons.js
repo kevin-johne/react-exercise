@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { CheckboxList } from "./CheckboxList";
+import { CheckboxList } from "../CheckboxList/CheckboxList";
 import { connect } from "react-redux";
-import { updateSelectedLessons } from "../store/lessons/lessons.action";
+import { updateSelectedLessons } from "../../store/lessons/lessons.action";
 import {
   getLessonsForCheckbox,
   isLoadingLessons
-} from "../store/lessons/lessons.selector";
+} from "../../store/lessons/lessons.selector";
 
 export class SelectedLessons extends Component {
   constructor(props) {

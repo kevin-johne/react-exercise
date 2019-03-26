@@ -1,5 +1,7 @@
 import React from "react";
 
+import './CheckboxList.scss';
+
 export const CheckboxList = props => {
   const items = props.items;
 

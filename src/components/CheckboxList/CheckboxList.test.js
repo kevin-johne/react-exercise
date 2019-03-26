@@ -1,5 +1,5 @@
 import {CheckboxList} from "./CheckboxList";
-import lessons from "../stub/checked-lessons";
+import lessons from "../../stub/checked-lessons";
 
 describe("<CheckboxList /> component", () => {
   let props;
